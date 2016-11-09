@@ -83,3 +83,9 @@ var setCurrentAlbum = function(album) {
 window.onload = function() {
     setCurrentAlbum(albumPicasso);
 };
+
+//window.addEventListener('scroll', function(event) {
+ //    if (document.documentElement.scrollTop || document.body.scrollTop >= scrollDistance) {
+ //            animatePoints(pointsArray);
+ //        }
+ // });
