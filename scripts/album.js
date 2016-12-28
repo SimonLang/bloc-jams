@@ -106,11 +106,14 @@ var findParentByClassName = function(element, targetClass) {
 
 //getSongItem() method code goes here
 var getSongItem = function (element) {
+    // console.log(element.className);
         switch (element.className) {
             case 'album-song-button':
             case 'ion-play':
             case 'ion-pause':
                 return findParentByClassName(element, 'song-item-number');
+            case 'album-view-song-item':
+                return element.querySelector('.song-item-number');
             case 'song-item-title':
             case 'song-item-duration':
                 return findParentByClassName(element, 'album-view-song-item').querySelector('.song-item-number');
@@ -155,7 +158,7 @@ window.onload = function() {
 
     songListContainer.addEventListener('mouseover', function(event) {
         if (event.target.parentElement.className === 'album-view-song-item') {
-                event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+                // event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
                 var songItem = getSongItem(event.target);
     
                 if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
@@ -165,12 +168,15 @@ window.onload = function() {
     });
 
          for (var i = 0; i < songRows.length; i++) {
+             
             songRows[i].addEventListener('mouseleave', function(event) {
                 // #1
+                
                 var songItem = getSongItem(event.target);
-                //var songItemNumber = songItem.getAttribute('data-song-number');
-                this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
-
+                console.log(songItem);
+                var songItemNumber = songItem.getAttribute('data-song-number');
+                //this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
+              
                 // #2
                 if (songItemNumber !== currentlyPlayingSong) {
                     songItem.innerHTML = songItemNumber;
