@@ -196,14 +196,24 @@ var currentSongFromAlbum = null;
 
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
-// var $playPauseButton = $('.main-controls .play-pause');
+var $playPauseButton = $('.main-controls .play-pause');
 //Document Ready block aka window onload
 $(document).ready(function() {
     setCurrentAlbum(albumPicasso);
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
-    // $playPauseButton.click(togglePlayFromPlayerBar)
+    $playPauseButton.click(togglePlayFromPlayerBar)
 });
+
+var togglePlayFromPlayerBar () {
+
+  if () {
+
+  } else {
+
+  }
+
+}
 
 
 //
