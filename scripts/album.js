@@ -235,16 +235,19 @@ $(document).ready(function() {
     $playPauseButton.click(togglePlayFromPlayerBar)
 });
 
-var togglePlayFromPlayerBar () {
 
-  if () {
-
-  } else {
-
-  }
-
-}
-
+var togglePlayFromPlayerBar = function(){
+     var $currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
+     if (currentSoundFile.isPaused()) {
+         $currentlyPlayingCell.html(pauseButtonTemplate);
+         $(this).html(playerBarPauseButton);
+         currentSoundFile.play();
+    } else if (currentSoundFile) {
+         $currentlyPlayingCell.html(playButtonTemplate);
+         $(this).html(playerBarPlayButton);
+         currentSoundFile.pause();
+     }
+ 	};
 
 //
 // var $previousButton = $('.main-controls .previous');
